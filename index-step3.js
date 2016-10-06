@@ -5,14 +5,58 @@ function main(){
 
 	// Créer et initialiser une variable 'globale' qui 
 	// va stocker le nombre de tentatives restantes.
-
-	// Créer et initialiser une variable 'globale' qui 
+	var nb_tentative = 3
+		// Créer et initialiser une variable 'globale' qui 
 	// va stocker le nombre "aléatoire" mystère.
+	var nb_mystere = parseInt(Math.random()*(29-9) + 9);
+	console.log(nb_mystere);
+	//reset();
+	function demarrerPartie(){
+		nb_tentative = 3;
+		nb_mystere = parseInt(Math.random()*(29-9) + 9);
+		console.log(nb_mystere);
+	}
 
+	function partieGagnee(){
+		return demarrerPartie();
+	}
 
+	function partiePerdue(){
+		if(nb_tentative === 0){
+			alert('Perdu');
+			return  demarrerPartie();
+		}
+	}
+	
 	// == Fonction clickValider == 
 	// Créer la fonction 'clickValider'
+	function clickValider(){
 
+		var contenu = parseInt($('input').val(), 10);
+	
+		if(contenu === nb_mystere){
+			alert('Gagné');
+			partieGagnee();
+		}
+		else if(contenu > nb_mystere){
+			alert('Perdu,votre nombre est trop grand');
+			nb_tentative --;
+			$('span').text(nb_tentative);
+			partiePerdue();
+		
+		}
+		else if(contenu < nb_mystere){
+	
+			alert('Perdu, votre nombre est trop petit');
+			nb_tentative --;
+			$('span').text(nb_tentative);
+			partiePerdue();
+		
+		}
+	}
+$('button').click(function(){
+			clickValider();
+	});	
 		// Récupérer le contenu de mon input
 
 		// Comparer ce contenu au nombre mystère.
