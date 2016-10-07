@@ -5,16 +5,15 @@ function main(){
 
 	// Créer et initialiser une variable 'globale' qui 
 	// va stocker le nombre de tentatives restantes.
-	var nb_tentative = 3
+	var nbTentative = 3
 		// Créer et initialiser une variable 'globale' qui 
 	// va stocker le nombre "aléatoire" mystère.
-	var nb_mystere = parseInt(Math.random()*(29-9) + 9);
-	console.log(nb_mystere);
-	//reset();
+	var nbMystere = parseInt(Math.random()*(29-9) + 9);
+	
 	function demarrerPartie(){
-		nb_tentative = 3;
-		nb_mystere = parseInt(Math.random()*(29-9) + 9);
-		console.log(nb_mystere);
+		nbTentative = 3;
+		nbMystere = parseInt(Math.random()*(29-9) + 9);
+		
 	}
 
 	function partieGagnee(){
@@ -22,7 +21,7 @@ function main(){
 	}
 
 	function partiePerdue(){
-		if(nb_tentative === 0){
+		if(nbTentative === 0){
 			alert('Perdu');
 			return  demarrerPartie();
 		}
@@ -34,22 +33,21 @@ function main(){
 
 		var contenu = parseInt($('input').val(), 10);
 	
-		if(contenu === nb_mystere){
+		if(contenu === nbMystere){
 			alert('Gagné');
 			partieGagnee();
-		}
-		else if(contenu > nb_mystere){
+			
+		}else if(contenu > nbMystere){
 			alert('Perdu,votre nombre est trop grand');
 			nb_tentative --;
-			$('span').text(nb_tentative);
+			$('span').text(nbTentative);
 			partiePerdue();
 		
-		}
-		else if(contenu < nb_mystere){
+		}else if(contenu < nbMystere){
 	
 			alert('Perdu, votre nombre est trop petit');
-			nb_tentative --;
-			$('span').text(nb_tentative);
+			nbTentative --;
+			$('span').text(nbTentative);
 			partiePerdue();
 		
 		}

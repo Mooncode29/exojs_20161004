@@ -30,7 +30,6 @@ function main(){
 
 	}
 
-
 	function clickValider(){
 		var contenu = parseInt($('#votre_nombre').val(), 10);
 
@@ -39,11 +38,11 @@ function main(){
 			partieGagnee();
 		} else if(contenu > nbMystere){
 			alert('Perdu, votre nombre est trop grand!');
-			nbMystere --;
+			nbTentative --;
 			$('span').text(nbTentative);
 		} else if(contenu < nbTentative){
 			alert('Perdu, votre nombre est trop petit')
-			nbMystere --;
+			nbTentative --;
 			$('span').text(nbTentative);
 		}
 		partiePerdue();
