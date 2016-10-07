@@ -6,16 +6,16 @@ function main(){
 	
 	$('#recupInput').click(function(){
 		nbTentative = parseInt($('#tentatives').val(), 10);
-		var nb_min = parseInt($('#mini').val(), 10);
-		var nb_maxi = parseInt($('#maxi').val(), 10);
+		var nbMin = parseInt($('#mini').val(), 10);
+		var nbMaxi = parseInt($('#maxi').val(), 10);
 
-		nbMystere = parseInt(Math.random()*(nb_maxi - nb_min) + nb_min);
+		nbMystere = parseInt(Math.random()*(nbMaxi - nbMin) + nbMin);
 	});
 
 	function demarrerPartie(){
 		nbTentative = parseInt($('#tentatives').val(), 10);
-		nb_mystere = parseInt(Math.random()*(nb_maxi - nb_min) + nb_min);
-		$('span').text(nb_tentative);
+		nbMystere = parseInt(Math.random()*(nbMaxi - nbMin) + nbMin);
+		$('span').text(nbTentative);
 	}
 
 	function partieGagnee(){
@@ -40,11 +40,11 @@ function main(){
 		} else if(contenu > nbMystere){
 			alert('Perdu, votre nombre est trop grand!');
 			nbMystere --;
-			$('span').text(nb_tentative);
-		} else if(contenu < nb_tentative){
+			$('span').text(nbTentative);
+		} else if(contenu < nbTentative){
 			alert('Perdu, votre nombre est trop petit')
 			nbMystere --;
-			$('span').text(nb_tentative);
+			$('span').text(nbTentative);
 		}
 		partiePerdue();
 	}
