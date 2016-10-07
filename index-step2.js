@@ -8,7 +8,7 @@ function pied(){
  			max = Math.floor(max);
   			return Math.floor(Math.random() * (max - min +1)) + min;
 		}
-		var nombre_aleatoire = getRandomIntInclusive(9, 29);
+		var nbMystere = getRandomIntInclusive(9, 29);
 		console.log(nombre_aleatoire);
 	// == Fonction clickValider == 
 	// Créer la fonction 'clickValider'
@@ -16,13 +16,13 @@ function pied(){
 		var contenu = parseInt($('input').val(), 10);
 		console.log(typeof contenu);
 
-		if(contenu === nombre_aleatoire){
+		if(contenu === nbMystere){
 			alert("Gagné!");
-		}
-		else if(contenu > nombre_aleatoire){
+
+		}else if(contenu > nbMystere){
 			alert("Perdu, votre nombre est trop grand!");
-		}
-		else if(contenu < nombre_aleatoire){
+			
+		}else if(contenu < nbMystere){
 			alert("Perdu, votre nombre est trop petit!");
 		}
 
